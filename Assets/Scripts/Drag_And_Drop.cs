@@ -11,6 +11,7 @@ public class Drag_And_Drop : MonoBehaviour
      GraphicRaycaster graphicRaycaster;
 
     private Transform selectedTransform;
+    private bool stickerSilhoutteMatched=false;
     private RectTransform selectedRect;
     private Vector3 offset;
     private Vector2 uiOffset;
@@ -20,12 +21,20 @@ public class Drag_And_Drop : MonoBehaviour
     private ScrollRect parentScrollRect;
     private EventSystem eventSystem;
     public GameObject CurrentRoom;
-
+    public StickerSO TestSticker;//add list of stickers SO here
+    void OnEnable()
+    {
+        Sticker.OnStickerMatched += MatchigStickerSilhouette;
+    }
+    void OnDisable()
+    {
+        Sticker.OnStickerMatched -= MatchigStickerSilhouette;
+    }
     void Awake()
     {
         cam = Camera.main;
         if (graphicRaycaster == null)
-            graphicRaycaster = FindObjectOfType<GraphicRaycaster>();
+            graphicRaycaster = FindFirstObjectByType<GraphicRaycaster>();
         eventSystem = EventSystem.current;
     }
 
@@ -59,19 +68,8 @@ public class Drag_And_Drop : MonoBehaviour
         {
             if (cam == null) return;
 
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.CompareTag(draggableTag))
-                {
-                    print("hit the object");
-                    BeginDrag3D(hit);
-                    return;
-                }
-            }
-
+           
             // 2D check (useful if your project uses 2D colliders)
             Vector3 worldPoint = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
             Vector2 worldPoint2D = new Vector2(worldPoint.x, worldPoint.y);
@@ -107,18 +105,7 @@ public class Drag_And_Drop : MonoBehaviour
         }
     }
 
-    private void BeginDrag3D(RaycastHit hit)
-    {
-        selectedTransform = hit.transform;
-        selectedRect = null;
-        Vector3 screenPoint = cam.WorldToScreenPoint(selectedTransform.position);
-        Vector3 mouseScreen = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        Vector3 mouseWorld = cam.ScreenToWorldPoint(mouseScreen);
-        offset = selectedTransform.position - mouseWorld;
-        isDragging = true;
-        parentScrollRect = selectedTransform.GetComponentInParent<ScrollRect>();
-        if (parentScrollRect != null) parentScrollRect.enabled = false;
-    }
+   
 
     private void BeginDragUI(RaycastResult raycastResult)
     {
@@ -155,10 +142,25 @@ public class Drag_And_Drop : MonoBehaviour
 
     private void EndDrag()
     {
-        isDragging = false;
+        if(stickerSilhoutteMatched)
+        {
+            print("SNAPPPED");
+            selectedTransform.localPosition = TestSticker.stickerSnapTransform.gameObject.GetComponent<RectTransform>().position;
+           // selectedTransform.position=new Vector3(0,0,0); //set to snap point position
+        }else
+        {
+              isDragging = false;
         if (parentScrollRect != null) parentScrollRect.enabled = true;
         selectedTransform = null;
         selectedRect = null;
         parentScrollRect = null;
+
+        }
+      
+    }
+    void MatchigStickerSilhouette()
+    {
+
+        stickerSilhoutteMatched=true;
     }
 }

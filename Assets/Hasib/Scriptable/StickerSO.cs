@@ -8,6 +8,7 @@ public class StickerSO : ScriptableObject
 {
    public string stickerName;
    public Sprite stickerImage;
+   public Sprite stickerHintImage;
    public Transform stickerSnapTransform;
    public AnimationClip stickerPlacementClip;
    public AnimationClip stickerClipLoop;

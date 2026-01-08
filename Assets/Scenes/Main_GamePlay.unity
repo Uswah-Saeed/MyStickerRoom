@@ -314,7 +314,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000015259, y: 78}
-  m_SizeDelta: {x: 764.628, y: 764.628}
+  m_SizeDelta: {x: 883.949, y: 883.949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393246939
 MonoBehaviour:
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 800089148}
   m_Layer: 5
   m_Name: Image (2)
-  m_TagString: DecorObject
+  m_TagString: Draggables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6924528, b: 0.6924528, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1148,10 +1148,9 @@ GameObject:
   - component: {fileID: 1190357519}
   - component: {fileID: 1190357518}
   - component: {fileID: 1190357520}
-  - component: {fileID: 1190357521}
   m_Layer: 5
   m_Name: 02_Image
-  m_TagString: DecorObject
+  m_TagString: Draggables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1188,7 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6445354, g: 0.67197824, b: 0.9622642, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1259,18 +1258,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1190357521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190357516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4c9994ac290ae24aaf7a7cba9e13e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Drag_And_Drop
 --- !u!1 &1245908878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,10 +1374,9 @@ GameObject:
   - component: {fileID: 1451297391}
   - component: {fileID: 1451297390}
   - component: {fileID: 1451297392}
-  - component: {fileID: 1451297393}
   m_Layer: 5
   m_Name: 01_Image
-  m_TagString: DecorObject
+  m_TagString: Draggables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1427,7 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.53730863, g: 0.8113208, b: 0.7221676, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1498,18 +1484,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1451297393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451297388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4c9994ac290ae24aaf7a7cba9e13e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Drag_And_Drop
 --- !u!1 &1563949165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1563949167}
+  - component: {fileID: 1563949168}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1541,6 +1516,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1563949168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563949165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c9994ac290ae24aaf7a7cba9e13e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Drag_And_Drop
+  draggableTag: Draggables
+  CurrentRoom: {fileID: 393246937}
 --- !u!1 &1843141140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,7 +1778,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1088764388}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.69330037
+  m_Size: 0.6933352
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

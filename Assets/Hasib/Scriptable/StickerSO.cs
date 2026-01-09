@@ -1,15 +1,14 @@
 using UnityEngine;
-[CreateAssetMenu(
-    fileName = "NewStickerData",
-    menuName = "Add Sticker/Sticker",
-    order = 1)]
+
+[CreateAssetMenu(menuName = "Sticker")]
 public class StickerSO : ScriptableObject
-    
 {
-   public string stickerName;
-   public Sprite stickerImage;
-   public Sprite stickerHintImage;
-   public Transform stickerSnapTransform;
-   public AnimationClip stickerPlacementClip;
-   public AnimationClip stickerClipLoop;
+    public string stickerName;
+
+    public Sprite stickerSprite;       // draggable sprite
+    public Sprite silhouetteSprite;    // hint sprite
+    public Transform stickerSnapTransform;
+    public string snapSpotID;           // UNIQUE per level
+    public float snapRadius = 60f;
+    public bool showHintAtFirst; // UI pixels
 }

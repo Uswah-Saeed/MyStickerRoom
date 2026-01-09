@@ -24,11 +24,11 @@ public class Drag_And_Drop : MonoBehaviour
     public StickerSO TestSticker;//add list of stickers SO here
     void OnEnable()
     {
-        Sticker.OnStickerMatched += MatchigStickerSilhouette;
+        Sticker.OnStickerMatched += MatchingStickerSilhouette;
     }
     void OnDisable()
     {
-        Sticker.OnStickerMatched -= MatchigStickerSilhouette;
+        Sticker.OnStickerMatched -= MatchingStickerSilhouette;
     }
     void Awake()
     {
@@ -158,7 +158,7 @@ public class Drag_And_Drop : MonoBehaviour
         }
       
     }
-    void MatchigStickerSilhouette()
+    void MatchingStickerSilhouette()
     {
 
         stickerSilhoutteMatched=true;

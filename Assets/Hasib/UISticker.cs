@@ -38,8 +38,8 @@ public class UISticker : MonoBehaviour
     public void ReturnToStart()
     {
         // IMPORTANT: parent first
-        Rect.SetParent(startParent);
-        Rect.anchoredPosition = startPos;
+       // Rect.SetParent(startParent);
+        Rect.anchoredPosition = transform.localPosition;
     }
 
     public bool IsPlaced => isPlaced;

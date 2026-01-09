@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7865ccb07f3a4e84494a3b9416c200e7, type: 3}
+  m_Name: Sticker_02_Room_01
+  m_EditorClassIdentifier: Assembly-CSharp::StickerSO
+  stickerName: Test
+  stickerSprite: {fileID: -31867287075369188, guid: 018f6a2a2d1905c408a5bd66f75424ef, type: 3}
+  silhouetteSprite: {fileID: 21300000, guid: fb43fdad84d47904da6d558f0b445fcd, type: 3}
+  stickerSnapTransform: {fileID: 2181399077436364995, guid: 7fbe5b3b8c583fd46a626075aff119d3, type: 3}
+  snapSpotID: 2
+  snapRadius: 100
+  showHintAtFirst: 1

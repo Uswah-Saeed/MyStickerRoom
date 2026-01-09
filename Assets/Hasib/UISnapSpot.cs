@@ -6,11 +6,12 @@ public class UISnapSpot : MonoBehaviour
     public string snapSpotID;
     public bool isOccupied;
 
-    public Image silhouetteImage;
+    Image silhouetteImage;
     public RectTransform Rect => (RectTransform)transform;
 
     void Awake()
     {
+        silhouetteImage = GetComponent<Image>();
         silhouetteImage.enabled = false;
     }
 

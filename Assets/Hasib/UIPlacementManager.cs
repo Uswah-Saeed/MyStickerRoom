@@ -22,7 +22,7 @@ public class UIPlacementManager : MonoBehaviour
 
     public void TryPlace(UISticker sticker)
     {
-        if (!spots.TryGetValue(sticker.Data.snapSpotID, out var spot))
+        if (!spots.TryGetValue(sticker.GetScriptableData().snapSpotID, out var spot))
         {
             sticker.ReturnToStart();
             return;
@@ -39,7 +39,7 @@ public class UIPlacementManager : MonoBehaviour
             spot.Rect.anchoredPosition
         );
 
-        if (dist > sticker.Data.snapRadius)
+        if (dist > sticker.GetScriptableData().snapRadius)
         {
             sticker.ReturnToStart();
             return;
@@ -55,9 +55,9 @@ public class UIPlacementManager : MonoBehaviour
 
     public void ShowHint(UISticker sticker)
     {
-        if (!spots.TryGetValue(sticker.Data.snapSpotID, out var spot))
+        if (!spots.TryGetValue(sticker.GetScriptableData().snapSpotID, out var spot))
             return;
 
-        spot.ShowHint(sticker.Data.silhouetteSprite);
+        spot.ShowHint(sticker.GetScriptableData().silhouetteSprite);
     }
 }

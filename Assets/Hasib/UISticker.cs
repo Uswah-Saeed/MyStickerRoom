@@ -2,24 +2,41 @@ using UnityEngine;
 
 public class UISticker : MonoBehaviour
 {
-    public StickerSO Data;
+    private StickerSO Data;
 
     public RectTransform Rect { get; private set; }
-
+    private int startSiblingIndex;
     private Transform startParent;
-    private Vector2 startPos;
     private bool isPlaced;
 
+    void OnEnable()
+    {
+        UIPlacementManager.OnStickerPlaced += UpdateSiblingIndex;
+    }
+
+    void OnDisable()
+    {
+        UIPlacementManager.OnStickerPlaced -= UpdateSiblingIndex;
+    }
     void Awake()
     {
         Rect = GetComponent<RectTransform>();
-        startParent = Rect.parent;
+        startParent = Rect.parent; // Content
+        startSiblingIndex = Rect.GetSiblingIndex();
+    }
+
+    public void SetScriptableData(StickerSO data)
+    {
+        Data = data;
+    }
+
+    public StickerSO GetScriptableData()
+    {
+        return Data;
     }
 
     void Start()
     {
-        startPos = Rect.anchoredPosition;
-
         if (Data.showHintAtFirst)
         {
             UIPlacementManager.Instance.ShowHint(this);
@@ -30,16 +47,24 @@ public class UISticker : MonoBehaviour
     {
         isPlaced = true;
 
-        // IMPORTANT: parent first
-        Rect.SetParent(target);
+        Rect.SetParent(target, false);
         Rect.anchoredPosition = Vector2.zero;
     }
 
     public void ReturnToStart()
     {
-        // IMPORTANT: parent first
-       // Rect.SetParent(startParent);
-        Rect.anchoredPosition = transform.localPosition;
+        isPlaced = false;
+
+        // ONLY this. LayoutGroup will place it correctly.
+        Rect.SetParent(startParent, false);
+        Rect.SetSiblingIndex(startSiblingIndex);
+    }
+    
+    public void UpdateSiblingIndex()
+    {
+        if (isPlaced)
+            return;
+        startSiblingIndex = Rect.GetSiblingIndex();
     }
 
     public bool IsPlaced => isPlaced;

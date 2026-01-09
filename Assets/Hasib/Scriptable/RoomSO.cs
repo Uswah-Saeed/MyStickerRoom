@@ -6,5 +6,5 @@ using UnityEngine;
 public class RoomSO : ScriptableObject
 {
     public int roomID;
-    public List<RoomSO> roomStickers;
+    public List<StickerSO> roomStickers;
 }

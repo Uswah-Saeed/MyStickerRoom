@@ -8,13 +8,18 @@ public class UIStickerDrag : MonoBehaviour,
     private RectTransform rect;
     private Canvas canvas;
     private CanvasGroup canvasGroup;
-    [SerializeField] RectTransform rectTransform;
+    [SerializeField] RectTransform defaultParent;
     void Awake()
     {
         sticker = GetComponent<UISticker>();
         rect = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
+    }
+    
+    public void SetDefaultParent(RectTransform parent)
+    {
+        defaultParent = parent;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -23,7 +28,7 @@ public class UIStickerDrag : MonoBehaviour,
 
         if (canvasGroup != null)
             canvasGroup.blocksRaycasts = false;
-        transform.SetParent(rectTransform);
+        transform.SetParent(defaultParent);
     }
 
     public void OnDrag(PointerEventData eventData)

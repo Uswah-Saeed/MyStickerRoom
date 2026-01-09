@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7865ccb07f3a4e84494a3b9416c200e7, type: 3}
-  m_Name: Sticker_01_Room_01
+  m_Name: Sticker_04_Room_01
   m_EditorClassIdentifier: Assembly-CSharp::StickerSO
   stickerName: Test
-  stickerSprite: {fileID: 21300000, guid: 9719bab2649aa4b4cbbd4afea526e66a, type: 3}
-  silhouetteSprite: {fileID: 21300000, guid: 67b054c68f36da04898e1280afac3c22, type: 3}
-  stickerSnapTransform: {fileID: 2181399077436364995, guid: da7619272fd81084d92f20789101667a, type: 3}
-  snapSpotID: 1
-  snapRadius: 100
+  stickerSprite: {fileID: -2213096243320602570, guid: 0e61ad303504d034a8bfc03f2a3a17e0, type: 3}
+  silhouetteSprite: {fileID: 21300000, guid: 5f862219260589843a21a31a260181b4, type: 3}
+  stickerSnapTransform: {fileID: 2181399077436364995, guid: 23f50198b2d6b5a4096c0af434150707, type: 3}
+  snapSpotID: 4
+  snapRadius: 150
   showHintAtFirst: 1

@@ -1,14 +1,16 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIPlacementManager : MonoBehaviour
 {
     public static UIPlacementManager Instance;
+    public static event Action OnStickerPlaced;
 
     private Dictionary<string, UISnapSpot> spots =
         new Dictionary<string, UISnapSpot>();
 
-    void Awake()
+    void OnEnable()
     {
         Instance = this;
     }
@@ -46,6 +48,8 @@ public class UIPlacementManager : MonoBehaviour
         // SNAP — ONLY HERE
         spot.isOccupied = true;
         sticker.SnapTo(spot.Rect);
+        print("Sticker placed!");
+        OnStickerPlaced?.Invoke();
         spot.HideHint();
     }
 

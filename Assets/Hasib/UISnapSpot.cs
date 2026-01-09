@@ -12,12 +12,12 @@ public class UISnapSpot : MonoBehaviour
     void Awake()
     {
         silhouetteImage.enabled = false;
-        UIPlacementManager.Instance.RegisterSpot(this);
     }
 
     void Start()
     {
        
+        UIPlacementManager.Instance.RegisterSpot(this);
     }
 
     public void ShowHint(Sprite sprite)
